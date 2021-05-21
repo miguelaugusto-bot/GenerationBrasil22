@@ -1,0 +1,40 @@
+--deletar o banco de dados rh se existir
+DROP DATABASE IF EXISTS db_commerce;
+
+--criar um banco de dados caso não exista
+CREATE DATABASE IF NOT EXISTS db_commerce;
+
+--usar o banco
+USE db_commerce;
+
+--criar uma tabela
+CREATE TABLE produtos(
+	id BIGINT AUTO_INCREMENT NOT NULL,
+	nome VARCHAR (80) NOT NULL,
+	preco DOUBLE (100,2) NOT NULL,
+	tipo VARCHAR (50) NOT NULL,
+	qtd INT (100) NOT NULL,
+	PRIMARY KEY (id)
+
+);
+
+--inserir valores no banco de dados
+INSERT INTO produtos(nome, preco, tipo, qtd)
+VALUE	("Processador", 500.00, "Peça", 40),
+		("Placa de Video", 900.00, "Peça", 10),
+		("Assinatura Netflix", 30.00, "Assinaturas", 60),
+		("Controle", 300.00, "Console", 28),
+		("Monitor", 400.00, "Peça", 26),
+		("Cartão Gold", 200.00, "Assinatura", 16),
+		("Teclado", 400.00, "Peça", 28),
+		("Mouse", 200.00, "Peça", 12),
+		("The witcher", 15.00, "Jogos", 4);
+
+--selecionar acima de 500		
+SELECT * FROM produtos WHERE preco >= 500.00;
+
+--selecionar abaixo de 500
+SELECT * FROM produtos WHERE preco < 500.00;
+
+--O preço do produto se elevou
+UPDATE produtos SET preco= 500.00 WHERE id=5;

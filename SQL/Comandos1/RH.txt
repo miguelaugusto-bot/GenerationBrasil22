@@ -1,0 +1,37 @@
+--deletar o banco de dados rh se existir
+DROP DATABASE IF EXISTS rh;
+
+--criar um banco de dados caso não exista
+CREATE DATABASE IF NOT EXISTS rh;
+
+--usar o banco
+USE rh;
+
+--criar uma tabela
+CREATE TABLE funcionario(
+	id BIGINT AUTO_INCREMENT NOT NULL,
+	nome VARCHAR (80) NOT NULL,
+	cpf BIGINT NULL,
+	setor VARCHAR (50) NOT NULL,
+	salario DOUBLE (100,2) NOT NULL,
+	PRIMARY KEY (id)
+
+);
+
+--inserir valores no banco de dados
+INSERT INTO funcionario(nome, cpf, setor, salario)
+VALUE	("Jose", 50648715417, "Departamento Pessoal", 1500.23),
+		("Maria", 98763552112, "Consultoria de Recursos Humanos", 2000.50),
+		("Vader", 66845933210, "Treinamento e Desenvolvimento", 3500.00),
+		("Gabriel", 25226998717, "Recrutamento e Seleção", 1100.00),
+		("Finn", 23266547891, "Treinamento e Desenvolvimento", 5000.60);
+
+--selecionar acima de 2000		
+SELECT * FROM funcionario WHERE salario > 2000.00;
+
+--selecionar abaixo de 2000
+SELECT * FROM funcionario WHERE salario < 2000.00;
+
+--parabens, recebeu uma promoção
+UPDATE funcionario SET salario= 2200.00 WHERE id=4;
+
