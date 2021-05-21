@@ -1,0 +1,40 @@
+--deletar o banco de dados rh se existir
+DROP DATABASE IF EXISTS db_escola;
+
+--criar um banco de dados caso não exista
+CREATE DATABASE IF NOT EXISTS db_escola;
+
+--usar o banco
+USE db_escola;
+
+--criar uma tabela
+CREATE TABLE registro_turma(
+	RA BIGINT AUTO_INCREMENT NOT NULL,
+	nome VARCHAR (80) NOT NULL,
+	nota DOUBLE (10,2) NOT NULL,
+	idade INT NOT NULL,
+	turma VARCHAR (11) NOT NULL,
+	PRIMARY KEY (RA)
+
+);
+
+--inserir valores no banco de dados
+INSERT INTO registro_turma(nome, nota, idade, turma)
+VALUE	("Marcelo", 5.5, 14, "A"),
+		("Antonio", 6.9, 15, "A"),
+		("Amanda", 10.0, 15, "A"),
+		("Ceslso", 9.8, 16, "B"),
+		("Wesley", 8.5, 17, "B"),
+		("Naruto", 0.0, 14, "B"),
+		("Boaz", 10.0, 14, "C"),
+		("Gabriel", 3.4, 18, "Recuperação"),
+		("Vader", 6.6, 16, "C");
+
+--selecionar acima de 500		
+SELECT * FROM registro_turma WHERE nota >= 7.0;
+
+--selecionar abaixo de 500
+SELECT * FROM registro_turma WHERE nota < 7.0;
+
+--O preço do produto se elevou
+UPDATE registro_turma SET turma= "Recuperação" WHERE nota= 0.0;
