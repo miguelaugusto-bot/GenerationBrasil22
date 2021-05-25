@@ -1,4 +1,4 @@
-#deletar o banco de dados rh se existir
+#deletar o banco de dados se existir
 DROP DATABASE IF EXISTS db_pizzaria_legal;
 
 #criar um banco de dados caso não exista
