@@ -1,4 +1,4 @@
-#deletar o banco de dados rh se existir
+#deletar o banco de dados se existir
 DROP DATABASE IF EXISTS db_generation_game_online;
 
 #criar um banco de dados caso não exista
